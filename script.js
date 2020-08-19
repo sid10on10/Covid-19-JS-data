@@ -5,7 +5,7 @@ mydiv.setAttribute("class","card-group")
 let header_div = document.createElement("div")
 header_div.setAttribute("style","text-align:center;color:black;")
 let header = document.createElement("h1")
-header.innerText = "World Covid-19 Data";
+header.innerText = "World Covid-19 Alert Data";
 header_div.appendChild(header)
 main.appendChild(header_div)
 main.appendChild(mydiv)
