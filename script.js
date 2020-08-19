@@ -20,13 +20,17 @@ async function getData(url){
 async function slugData(slug){
     let url = `https://api.covid19api.com/country/${slug}?from=2020-07-01T00:00:00Z&to=2020-08-01T00:00:00Z`
     let result = await getData(url)
-    alert(result);
+    let line = ""
+    for(each of result){
+        line += "Confirmed" + each["Confirmed"]
+    }
+    alert(line);
 }
 
 
 async function processCountry(){
     try{
-    let arr = await getData('https://api.covid19api.com/countries')
+        let arr = await getData('https://api.covid19api.com/countries')
     for(let i=0;i<arr.length;i++){
         let outer_div = document.createElement("div")
         outer_div.setAttribute("style","display:flex;justify-content:center;padding:5px;")
@@ -50,9 +54,11 @@ async function processCountry(){
         card_slug.setAttribute("class","card-text")
         card_slug.innerText = `Country Slug : ${arr[i]["Slug"]}`
         let slug = arr[i]["Slug"]
+        
 
         let detail_button = document.createElement("a")
         detail_button.setAttribute("class","btn btn-primary")
+        detail_button.setAttribute("onclick", `slugData('${slug}')`)
         detail_button.innerText = "Details"
 
         card_body.appendChild(card_head)
