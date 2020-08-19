@@ -22,7 +22,7 @@ async function slugData(slug){
     let result = await getData(url)
     let line = ""
     for(each of result){
-        line += "Confirmed" + each["Confirmed"]
+        line += "Confirmed : " + each["Confirmed"] + "Deaths : " + each["Deaths"] + "Recovered : " + each["Recovered"] + "Active : " + each["Active"] +  "\n"
     }
     alert(line);
 }
